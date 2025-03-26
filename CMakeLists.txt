@@ -40,4 +40,5 @@ add_executable(Leetcode1 main.cpp
         Coders-tasks/coders_deque_5.h
         Coders-tasks/coders_funktor_6.h
         Coders-tasks/coders_lambda_7.h
-        Coders-tasks/coders_iterator_8.h)
+        Coders-tasks/coders_iterator_8.h
+        Coders-tasks/coders_algorithms_foreach_9.h)
