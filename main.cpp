@@ -1,4 +1,5 @@
-#include "Coders-tasks/coders_algorithms_foreach_9.h"
+#include "Coders-tasks/coders_algorithms_10.h"
+using namespace std;
 int main() {
-    foreach_task();
+    non_modifying_algorithms();
 }
