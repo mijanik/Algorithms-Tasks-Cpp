@@ -1,27 +1,28 @@
 #include <iostream>
-#include <cassert>
-#include "Medium/longest_substr_wo_repeat.h"
+#include "Medium/longest_palindromic_substr.h"
+
 using namespace std;
 
-void runTest(Solution& sol, const string& input, int expected) {
-    int result = sol.lengthOfLongestSubstring(input);
+void runTest(Solution& sol, const string& input, const string& expected) {
+    string result = sol.longestPalindrome(input);
     if (result == expected) {
-        cout << "✅ Test passed for input: \"" << input << "\" (output: " << result << ")" << endl;
+        cout << "Test passed for input: \"" << input << "\" (output: \"" << result << "\")" << endl;
     } else {
-        cout << "❌ Test failed for input: \"" << input << "\" (expected: " << expected << ", got: " << result << ")" << endl;
+        cout << "Test failed for input: \"" << input << "\" (expected: \"" << expected << "\", got: \"" << result << "\")" << endl;
     }
 }
 
 int main() {
     Solution sol;
 
-    runTest(sol, "abcabcbb", 3);    // "abc"
-    runTest(sol, "bbbbb", 1);       // "b"
-    runTest(sol, "pwwkew", 3);      // "wke"
-    runTest(sol, "", 0);            // empty string
-    runTest(sol, "abcdefg", 7);     // all unique
-    runTest(sol, "dvdf", 3);        // "vdf"
-    runTest(sol, "a!@#a$%^", 7);    // "!@#a$%^"
+    runTest(sol, "babad", "bab");    // "aba" is also valid
+    runTest(sol, "cbbd", "bb");
+    runTest(sol, "a", "a");
+    runTest(sol, "ac", "a");         // or "c"
+    runTest(sol, "racecar", "racecar");
+    runTest(sol, "banana", "anana");
+    runTest(sol, "forgeeksskeegfor", "geeksskeeg");
+    runTest(sol, "abcd", "a");
 
     return 0;
 }

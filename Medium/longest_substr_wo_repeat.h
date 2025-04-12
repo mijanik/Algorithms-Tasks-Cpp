@@ -8,23 +8,29 @@
 #include <string>
 #include <unordered_set>
 
-// TODO -  IN PROGRESS
 class Solution {
 public:
-    int lengthOfLongestSubstring(std::string s) {
-        auto first = s.begin();
-        auto last = first;
-        std::unordered_set<char> window;
-        int max_size = 0;
 
-        for (auto it : s) {
-            if (window.contains(it)) {
-                window.erase(it);
-                first++;
-            }
-            window.insert(it);
-            last++;
-            if (window.size() > max_size) max_size = window.size();
+    //  abcdbab
+    //  |__| -> poszerzamy okno w prawo i jak napotkamy duplikat, to zmniejszamy od lewej,
+    //  aż nie pozbędziemy się duplikatu
+
+    int lengthOfLongestSubstring(std::string s) {
+        auto first = s.begin(); // pierwszy element przesuwanego okna
+        std::unordered_set<char> window; //zbiór elementów w badanym oknie
+        int max_size = 0; // maksymalny rozmiar z badanych okien -> wynik
+
+        for (char current : s) {
+            if (window.contains(current)) { // jeśli napotkamy powtórzenie                abcdbab
+                while (*first != current) { // usuwamy wszystkie elementy przed powtórką  *___|
+                    window.erase(*first);
+                    ++first;
+                }
+                window.erase(*first); // usuwamy pierwsze wystąpienie powtórzenia   abcdbab
+                ++first; //                                                          *__|
+            }                                                // abcdbab
+            window.insert(current); //poszerzamy okno w prawo     |_|
+            if (window.size() > max_size) max_size = window.size(); // sprawdzamy, czy bieżące okno jest największe
         }
         return max_size;
     }
