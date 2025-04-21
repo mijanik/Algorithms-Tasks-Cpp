@@ -45,4 +45,5 @@ add_executable(Leetcode1 main.cpp
         Coders-tasks/coders_algorithms_10.h
         Easy/majority_element.h
         Medium/longest_substr_wo_repeat.h
-        Medium/longest_palindromic_substr.h)
+        Medium/longest_palindromic_substr.h
+        Coders-tasks/coders_classes_11.h)
