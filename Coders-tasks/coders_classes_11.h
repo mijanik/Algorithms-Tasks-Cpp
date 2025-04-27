@@ -48,15 +48,47 @@ private:
     std::string name_;
     size_t amount_;
     size_t basePrice_;
+// public:
+//     Cargo& operator+=(const size_t cargo) {
+//         amount_+=cargo;
+//         return *this;
+//     }
+//     Cargo& operator-=(const size_t cargo) {
+//         amount_+=cargo;
+//         return *this;
+//     }
 public:
-    Cargo& operator+=(const size_t cargo) {
-        amount_+=cargo;
-        return *this;
+    virtual size_t getPrice() const = 0;
+    virtual std::string getName() const = 0;
+    virtual size_t getAmount() const = 0;
+    virtual size_t getBasePrice() const = 0;
+};
+
+class Fruit : public Cargo {
+private:
+    size_t time_;
+public:
+    size_t getPrice() const override{
+        
     }
-    Cargo& operator-=(const size_t cargo) {
-        amount_+=cargo;
-        return *this;
+    Fruit& operator--(){
+    time_--;
+    return *this;
     }
+};
+//TODO
+class Alcohol : public Cargo{
+private:
+    size_t percentage_;
+public:
+
+};
+
+enum
+//TODO
+class Item : public Cargo{
+private:
+public:
 };
 
 #endif //CODERS_CLASSES_11_H
