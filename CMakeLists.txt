@@ -51,4 +51,6 @@ add_executable(Leetcode1 main.cpp
         other-tasks/sensors.h
         other-tasks/rtos-simulation.h
         other-tasks/message_queue.h
+        other-tasks/motor-controller.h
+        other-tasks/sensor_factory.h
 )
